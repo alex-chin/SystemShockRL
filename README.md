@@ -10,3 +10,6 @@
 
 [Part 3 - Generating a dungeon](https://rogueliketutorials.com/tutorials/tcod/v2/part-3/)
 
+[Part 4 - Field of View](https://rogueliketutorials.com/tutorials/tcod/v2/part-4/)
+
+[Part 5 - Placing Enemies and kicking them (harmlessly)](https://rogueliketutorials.com/tutorials/tcod/v2/part-5/)
