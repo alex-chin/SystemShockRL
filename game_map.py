@@ -24,6 +24,19 @@ class GameMap:
         """Return True if x and y are inside of the bounds of this map."""
         return 0 <= x < self.width and 0 <= y < self.height
 
+    """
+    нужно определить, есть ли в пространстве, в которое пытается переместиться игрок,
+    Сущность. Однако не просто любая сущность: мы проверим, установлено ли 
+    для сущности «blocks_movement» значение True. 
+    Если это так, наш игрок не сможет туда переместиться и вместо этого попытается атаковать.
+    """
+    def get_blocking_entity_at_location(self, location_x: int, location_y: int) -> Optional[Entity]:
+        for entity in self.entities:
+            if entity.blocks_movement and entity.x == location_x and entity.y == location_y:
+                return entity
+
+        return None
+
     def render(self, console: Console) -> None:
         """
         Renders the map.

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import copy
-from typing import Tuple
 from typing import Tuple, TypeVar, TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -22,6 +21,7 @@ class Entity:
             char: str = "?",
             color: Tuple[int, int, int] = (255, 255, 255),
             name: str = "<Unnamed>",
+            # можно ли это Entity переместить или нет, например оборудование
             blocks_movement: bool = False,
     ):
         self.x = x
@@ -31,6 +31,7 @@ class Entity:
         self.name = name
         self.blocks_movement = blocks_movement
 
+    """ Клонирование сущности """
     def spawn(self: T, gamemap: GameMap, x: int, y: int) -> T:
         """Spawn a copy of this instance at the given location."""
         clone = copy.deepcopy(self)

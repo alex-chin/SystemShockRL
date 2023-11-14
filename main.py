@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
+
+import copy
 import tcod
 
-from actions import EscapeAction, MovementAction
 from engine import Engine
-from entity import Entity
-
-from procgen import generate_dungeon
-
+import entity_factories
 from input_handlers import EventHandler
+from procgen import generate_dungeon
 
 
 def main() -> None:
@@ -23,14 +22,14 @@ def main() -> None:
 
     max_monsters_per_room = 2
 
-
     tileset = tcod.tileset.load_tilesheet(
         "dejavu10x10_gs_tc.png", 32, 8, tcod.tileset.CHARMAP_TCOD
     )
 
     event_handler = EventHandler()
 
-    player = Entity(int(screen_width / 2), int(screen_height / 2), "@", (255, 255, 255))
+    player = copy.deepcopy(entity_factories.player)
+
 
     game_map = generate_dungeon(
         max_rooms=max_rooms,
