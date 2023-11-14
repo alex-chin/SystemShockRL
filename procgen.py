@@ -86,7 +86,18 @@ def generate_dungeon(
         max_monsters_per_room: int,
         player: Entity,
 ) -> GameMap:
-    """Generate a new dungeon map."""
+    """
+    Generate a new dungeon map.
+
+    :param max_rooms:
+    :param room_min_size:
+    :param room_max_size:
+    :param map_width:
+    :param map_height:
+    :param max_monsters_per_room:
+    :param player:
+    :return:
+    """
     dungeon = GameMap(map_width, map_height, entities=[player])
 
     rooms: List[RectangularRoom] = []
